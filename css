@@ -1,0 +1,167 @@
+/* --- RENK PALETİ VE GENEL STİL (Sade ve Koyu) --- */
+:root {
+    --ana-renk: #78A083; /* Yumuşak ve sakin yeşil vurgu */
+    --arka-alan-koyu: #36454F; /* Koyu Gri / Arduvaz Gri */
+    --metin-acik: #E0E0E0; /* Açık gri metin */
+    --vurgu-acik: #FFFFFF; /* Beyaz vurgu */
+    --hata-koyu: #E74C3C; /* Kırmızı hata mesajı */
+    --ipucu-koyu: #B8B8B8; /* İpucu için hafif gri */
+}
+
+body {
+    background-color: var(--arka-alan-koyu);
+    font-family: 'Georgia', serif; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    transition: background-color 0.8s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- AŞAMA I/I.5: GİRİŞ EKRANI STİLİ --- */
+#giris-ekrani-container {
+    max-width: 400px;
+    width: 90%;
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* SAKIN TIKLAMA BUTONU STİLİ */
+#sakın-tıklama-butonu {
+    background-color: var(--ana-renk);
+    color: var(--vurgu-acik);
+    border: 3px solid var(--vurgu-acik);
+    padding: 20px 60px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    animation: pulse 2s infinite; 
+}
+
+#sakın-tıklama-butonu:hover {
+    background-color: #5D8068; 
+    transform: scale(1.05);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* İSİM GİRİŞ FORMU STİLİ */
+#isim-formu {
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 1px solid var(--ana-renk);
+    color: var(--metin-acik);
+}
+
+#isim-formu h2 {
+    color: var(--ana-renk);
+    margin-bottom: 20px;
+}
+
+#sevgiliAdi {
+    width: 80%;
+    padding: 12px;
+    border: 2px solid var(--ana-renk);
+    border-radius: 5px;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 15px;
+    background-color: var(--arka-alan-koyu);
+    color: var(--vurgu-acik);
+}
+
+/* İpucu Alanı Stili */
+#ipucu-alani {
+    color: var(--ipucu-koyu);
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 8px;
+    border-top: 1px solid rgba(120, 160, 131, 0.5);
+}
+
+#girisButonu {
+    background-color: var(--ana-renk);
+    color: var(--vurgu-acik);
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#hataMesaji {
+    color: var(--hata-koyu);
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* --- AŞAMA II: PARAGRAF EKRANI STİLİ --- */
+#paragraf-ekrani {
+    display: none; 
+    background-color: var(--arka-alan-koyu); 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out; 
+    overflow-y: auto; 
+}
+
+#paragraf-ekrani.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.paragraf-kutu {
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--ana-renk);
+    box-shadow: 0 0 50px rgba(120, 160, 131, 0.4);
+    color: var(--metin-acik);
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+
+.paragraf-kutu h2 {
+    color: var(--ana-renk);
+    border-bottom: 2px solid var(--ana-renk);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+#imza {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--ana-renk);
+    text-align: right;
+    display: block;
+}
